@@ -1,5 +1,8 @@
 const mix = require('laravel-mix');
 
+mix.babelConfig({
+    presets: ["@babel/preset-react"],
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
