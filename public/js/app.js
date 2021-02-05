@@ -4852,7 +4852,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PUBLIC_URL": () => (/* binding */ PUBLIC_URL)
 /* harmony export */ });
-var PUBLIC_URL = "/myTask/";
+var PUBLIC_URL = "/task-manager/";
 
 /***/ }),
 
@@ -4914,7 +4914,7 @@ var registerUser = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://localhost:8200/myTask/api/auth/register", data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/task-manager/api/auth/register", data).then(function (res) {
               return res.data;
             });
 
@@ -4946,7 +4946,7 @@ var loginUser = /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://localhost:8200/myTask/api/auth/login", data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/task-manager/api/auth/login", data).then(function (res) {
               return res.data;
             });
 
@@ -5000,7 +5000,7 @@ var getProjectList = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost:8200/myTask/api/projects").then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/task-manager/api/projects").then(function (res) {
               return res.data;
             });
 
@@ -5033,7 +5033,7 @@ var storeNewProject = /*#__PURE__*/function () {
           case 0:
             data.user_id = 1;
             _context2.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://localhost:8200/myTask/api/projects", data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/task-manager/api/projects", data).then(function (res) {
               return res.data;
             });
 
@@ -5060,7 +5060,7 @@ var updateProject = /*#__PURE__*/function () {
           case 0:
             data.user_id = 1;
             _context3.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().put("http://localhost:8200/myTask/api/projects/".concat(id), data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().put("/task-manager/api/projects/".concat(id), data).then(function (res) {
               return res.data;
             });
 
@@ -5087,7 +5087,7 @@ var deleteProject = /*#__PURE__*/function () {
           case 0:
             console.log("id", id);
             _context4.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("http://localhost:8200/myTask/api/projects/".concat(id)).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/task-manager/api/projects/".concat(id)).then(function (res) {
               return res.data;
             });
 
@@ -5149,7 +5149,7 @@ var storeNewTask = /*#__PURE__*/function () {
           case 0:
             data.project_id = parseInt(data.project_id);
             _context.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://localhost:8200/myTask/api/tasks", data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/task-manager/api/tasks", data).then(function (res) {
               return res.data;
             });
 
@@ -5175,7 +5175,7 @@ var updateTask = /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().put("http://localhost:8200/myTask/api/tasks/".concat(id), data).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().put("/task-manager/api/tasks/".concat(id), data).then(function (res) {
               return res.data;
             });
 
@@ -5201,7 +5201,7 @@ var deleteTask = /*#__PURE__*/function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("http://localhost:8200/myTask/api/tasks/".concat(id)).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/task-manager/api/tasks/".concat(id)).then(function (res) {
               return res.data;
             });
 

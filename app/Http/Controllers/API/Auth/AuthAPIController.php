@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
-use App\User;
 use App\repositories\AuthRepository;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthAPIController extends Controller
 {
@@ -28,12 +29,12 @@ class AuthAPIController extends Controller
     public function login(Request $request)
     {
         $formData = $request->all();
-        $validator = \Validator::make($formData, [
+        $validator = Validator::make($formData, [
             'email' => 'required',
             'password' => 'required',
         ], [
-            'email.required' => 'Please give your email address',
-            'password.required' => 'Please give your password',
+            'email.required' => 'email address required',
+            'password.required' => 'Password required',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -48,14 +49,14 @@ class AuthAPIController extends Controller
             $accessToken = $user->createToken('authToken')->accessToken;
             return response()->json([
                 'success' => true,
-                'message' => 'Logged in successully !!',
+                'message' => 'Logged in Successully!',
                 'user' => $user,
                 'access_token' => $accessToken,
             ]);
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry Invalid Email and Password',
+                'message' => 'Invalid Email and Password',
                 'errors' => null,
             ]);
         }
@@ -64,15 +65,15 @@ class AuthAPIController extends Controller
     public function register(Request $request)
     {
         $formData = $request->all();
-        $validator = \Validator::make($formData, [
+        $validator = Validator::make($formData, [
             'name' => 'required|min:3|max:30',
             'email' => 'required|email|max:100|unique:users',
             'password' => 'required|confirmed|min:8',
         ], [
-            'name.required' => 'Please give your name',
-            'email.required' => 'Please give your email address',
-            'email.unique' => 'Your email address is already used, Please Login or use another',
-            'password.required' => 'Please give your password',
+            'name.required' => 'Name required',
+            'email.required' => 'Email address required',
+            'email.unique' => 'Email Address already in use',
+            'password.required' => 'Password required',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -88,14 +89,14 @@ class AuthAPIController extends Controller
             $accessToken = $user->createToken('authToken')->accessToken;
             return response()->json([
                 'success' => true,
-                'message' => 'Registered successully !!',
+                'message' => 'Registration Successull!',
                 'user' => $user,
                 'access_token' => $accessToken,
             ]);
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'Registration Cannot successfull !',
+                'message' => 'Registration Failed!',
                 'errors' => null,
             ]);
         }

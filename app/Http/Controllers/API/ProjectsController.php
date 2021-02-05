@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\repositories\ProjectRepository;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectsController extends Controller
 {
@@ -63,7 +64,7 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         $formData = $request->all();
-        $validator = \Validator::make($formData, [
+        $validator = Validator::make($formData, [
             'name' => 'required',
             'description' => 'required',
             'user_id' => 'required'
@@ -106,7 +107,7 @@ class ProjectsController extends Controller
         }
 
         $formData = $request->all();
-        $validator = \Validator::make($formData, [
+        $validator = Validator::make($formData, [
             'name' => 'required',
             'description' => 'required',
             'user_id' => 'required'

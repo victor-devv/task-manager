@@ -23,12 +23,11 @@ export const checkIfAuthenticated = () => {
  * @param {object} data
  */
 export const registerUser = async (data) => {
-  return await Axios.post(
-    "http://localhost:8200/myTask/api/auth/register",
-    data
-  ).then((res) => {
-    return res.data;
-  });
+  return await Axios.post("/task-manager/api/auth/register", data).then(
+      (res) => {
+          return res.data;
+      }
+  );
 };
 
 /**
@@ -37,10 +36,7 @@ export const registerUser = async (data) => {
  * @param {object} data
  */
 export const loginUser = async (data) => {
-  return await Axios.post(
-    "http://localhost:8200/myTask/api/auth/login",
-    data
-  ).then((res) => {
-    return res.data;
+  return await Axios.post("/task-manager/api/auth/login", data).then((res) => {
+      return res.data;
   });
 };
